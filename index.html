@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        input, output {
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Profit Calculator</h1>
+
+    <form id="profitForm">
+        <label for="crates">Crates Hauled:</label>
+        <input type="number" id="crates" required>
+
+        <label for="sellingPrice">Selling Price:</label>
+        <input type="number" id="sellingPrice" required>
+
+        <label for="profit">Profit:</label>
+        <output id="profit" for="crates sellingPrice">0</output>
+
+        <button type="button" onclick="calculateProfit()">Calculate Profit</button>
+    </form>
+
+    <script>
+        function calculateProfit() {
+            // Get input values
+            var crates = parseFloat(document.getElementById('crates').value);
+            var sellingPrice = parseFloat(document.getElementById('sellingPrice').value);
+
+            // Perform calculation
+            var profit = crates * (sellingPrice - 50);
+
+            // Display the result
+            document.getElementById('profit').textContent = isNaN(profit) ? "Invalid Input" : profit;
+        }
+    </script>
+
+</body>
+</html>
